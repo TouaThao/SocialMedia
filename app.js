@@ -5,7 +5,7 @@ const app = express();
 const morgan = require('morgan')
 
 //bring in route
-const {getPosts} = require('./routes/post')
+const postRoute = require('./routes/post')
 
 //middleware variable
 const myMiddleWare = (req, res, next)=>{
@@ -21,7 +21,7 @@ we could use it to check or do in the middle. like loging message ,etc
 app.use(morgan('dev'));
 app.use(myMiddleWare)
 
-app.get('',getPosts)
+app.use('',postRoute)
 
 const port= 8080
 app.listen(port, () =>{
